@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Local Community Event Portal</title>
+        <style>
+            #WELCOMEBANNER{
+                color:chocolate;
+                background-color:blue;
+                font-size:40px;
+            }
+            .highlight{
+                color:blue;
+                font-weight:bold;
+            }
+            .imgborder{
+                border:2px solid black;
+                width:200px;
+                height:150px;
+                object-fit:cover;
+            }
+            .caption-text{
+                text-align:center;
+                font-weight:bold;
+            }
+            form{
+                background-color:white;
+                width:300px;
+                padding:20px;
+                margin:20px;
+
+            }
+            input,select,textarea{
+                width:100%;
+                padding:10px;
+                margin:10px 0;
+                box-sizing:border-box;
+            }
+            button{
+                background-color:blue;
+                color:white;
+                padding:10px 20px;
+            }
+            output{
+                color:green;
+                font-weight:bold;
+            }
+
+        </style>
+        
+    </head>
+    <body>
+        <!--WELCOME-->
+        <div>
+            <h1 id="WELCOMEBANNER">Welcome Back Users</h1>
+            <span style="color:red; font-weight:bold;">
+                Their is a Big Offer Today
+            </span>
+        </div>
+        <!--Navigation-->
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#events">Events</a>
+            <a href="#contact">Contact</a>
+            <a href="help.html" target="_blank">Help</a>
+
+        </nav>
+        <!--Main-->
+        <main>
+            <section id="home">
+                <h1>Welcome</h1>
+                <p>Welocome to the portal</p>
+
+            </section>
+            <section id="events">
+                <h1>Events</h1>
+                <p>This are the list of the events</p>
+
+            </section>
+            <section id="contact">
+                <h1>Contact</h1>
+                <p>Email: supportteam@gmail.com</p>
+            </section>
+            <table>
+                <caption>Gallery for Community Events</caption>
+                <tr>
+                    <td>
+                        <img src="Event1.jpg" alt="Image of Event 1" title="Holi" class="imgborder">
+                        <div class="caption-text">Event 1</div>
+                    </td>
+                    <td>
+                        <img src="Event2.jpg" alt="Image of Event 2" title=" Tree Plantation" class="imgborder">
+                        <div class="caption-text">Event 2</div>
+                    </td>
+                    <td>
+                        <img src="Event3.jpg" alt="Image of Event 3" title="Blood donation camp" class="imgborder">
+                        <div class="caption-text">Event 3</div>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="Event4.jpg" alt="Image of Event 4" title="Food Donation camp" class="imgborder">
+                        <div class="caption-text">Event 4</div>
+                    </td>
+                    <td>
+                        <img src="Event5.jpg" alt="Image of Event 5" title="Community sports" class="imgborder">
+                        <div class="caption-text">Event 5</div>
+                    </td>
+                    <td>
+                        <img src="Event6.jpg" alt="Image of event 5" title="Awareness campaign" class="imgborder">
+                        <div class="caption-text">Event 6</div>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <h1>Register for an event</h1>
+            <form>
+                <label>Name</label>
+                <input type="text" name="name" placeholder="Enter your name" required autofocus>
+                <br>
+                <label>Email</label>
+                <input type="email" placeholder="Enter tour email">
+                <br>
+                <label>Date</label>
+                <input type="date" name="Date" placeholder="Enter the date">
+                <br>
+                <label>Select event type</label>
+                <select id="eventtype" required>
+                    <option value="">Select an option</option>
+                    <option>Holi</option>
+                    <option>Tree Plantation</option>
+                    <option>Blood donation camp</option>
+                    <option>Food Donation camp</option>
+                    <option>Community sports</option>
+                    <option>Awareness campaign</option>
+                </select>
+                <br>
+                <textarea name="message" placeholder="Enter the message">
+                
+                </textarea>
+                <button type="submit">Submit</button>
+                <output id="result"></output>
+            </form>
+
+        </main>
+        <script>
+            document.querySelector("form").addEventListener("submit",function(event){
+                event.preventDefault();
+                document.getElementById("result").value="Form submitted successfully";
+
+            })
+        </script>
+        <br>
+        <h1>FeedBack Form</h1>
+        <form>
+            <label>Phone Number</label>
+            <input type="tel" id="phonenumber" onblur="validatenumber()" placeholder="Enter your phone number">
+            <p id="phonemsg"></p>
+            <br>
+            <select id="eventtype2" onchange="validateevent()">
+    
+                <option value="">Select</option>
+
+                <option value="Holi">Holi</option>
+
+                <option value="Tree Plantation">
+                Tree Plantation
+                </option>
+
+            </select>
+
+            <p id="valid"></p>
+            <br>
+            <button type="button" onclick="buttonclick()">Submit</button>
+            <p id="coinform"></p>
+            <br>
+            <img src="Event1.jpg" id="image1" ondblclick="dounle()" width="200px">
+            <br>
+            <textarea type="text" onkeyup="councharacters()" id="message" placeholder="Enter your feedback"></textarea>
+            <p id="charcount"></p>
+        </form>
+        <script>
+            function validatenumber(){
+                let user=document.getElementById("phonenumber").value;
+                if (user.length==10){
+                    document.getElementById("phonemsg").innerHTML="Valid Number";
+                }
+                else{
+                    document.getElementById("phonemsg").innerHTML="Invalid Number";
+                }
+            }
+            function validateevent(){
+            let eventty = document.getElementById("eventtype2").value;
+            console.log(eventty);
+                if(eventty === "Holi"){
+                    document.getElementById("valid").innerHTML ="Fee: 100";
+                }
+                else if(eventty === "Tree Plantation"){
+                    document.getElementById("valid").innerHTML ="Fee: 150";
+                }
+                else{
+                    document.getElementById("valid").innerHTML ="Please select an event";
+                }
+            }
+            function buttonclick(){
+                document.getElementById("coinform").innerHTML="Button Clicked";
+            }
+            function dounle(){
+                document.getElementById("image1").style.width="400px";
+            }
+            function councharacters(){
+                let message=document.getElementById("message").value;
+                document.getElementById("charcount").innerHTML="Character count:"+message.length;
+            }
+        </script>
+        <h1>Video</h1>
+        <video width="400px" controls oncanplay="videoReday()">
+            <source src="video.mp4" type="video/mp4">
+        </video>
+        <p id="videor"></p>
+        <script>
+            function videoReday(){
+                document.getElementById("videor").innerHTML="Video reday to play";
+            }
+            window.onbeforeunload=function(){
+                return "Are you sure you want to leave?";
+            }
+        </script>
+        <h1>Storage</h1>
+        <select id="eventy" onchange="savepreferences()">
+            <option value="">Holi</option>
+            <option value="Tree Plantation">Tree Plantation</option>
+        </select>
+        <button type="button" onclick="cleardata()">Submit</button>
+        <script>
+            function savepreferences(){
+                let event=document.getElementById("eventy").value;
+                localStorage.setItem("event",event);
+            }
+            window.onload=function(){
+                let saveditem=localStorage.getItem("event");
+                if(saveditem){
+                    document.getElementById("eventy").value=saveditem;
+                }
+            }
+            function cleardata(){
+                localStorage.clear();
+                sessionStorage.clear();
+                alert("preferences cleared");
+            }
+        </script>
+        <br>
+        <h1>Geolocation</h1>
+        <button type="button" onclick="locations()">Find Near By Events</button>
+        <p id="location"></p>
+        <br>
+        <button type="button" onclick="buttonclick()">Click Me</button>
+        <script>
+            function locations(){
+                if(navigator.geolocation){
+                    navigator.geolocation.getCurrentPosition(
+                        showPosition,
+                        showError,
+                        {
+                            enableHighAccuracy:true,
+                            timeout:10000,
+                        }
+                    );
+
+                }
+                else{
+                    document.getElementById("location").innerHTML="Geolocation is not supported by this browser";
+                }
+                function showPosition(position){
+                    document.getElementById("location").innerHTML=
+                    "Latitude: "+position.coords.latitude+"<br>Longitude: "+position.coords.longitude;
+                }
+                function showError(error){
+                    if(error.code==1){
+                        document.getElementById("location").innerHTML="Permission denied";
+                    }
+                    else if(error.code==3){
+                        document.getElementById("location").innerHTML="Timeout";
+                    }
+                    else{
+                        document.getElementById("location").innerHTML="An unknown error occurred";
+                    }
+                }
+            }
+            function buttonclick(){
+            console.log("Button clicked");
+            document.getElementById("coinform").innerHTML ="Button Clicked";
+}
+        </script>
+        <!--Footer-->
+        <footer class="highlight">
+            <p>Copy right 2026</p>
+            <p>Bye people</p>
+        </footer>
+
+        
+    </body>
+
+</html>

@@ -1,0 +1,178 @@
+
+/*Global Styles */
+*{
+    font-family: Arial, sans-serif;
+}
+body{
+    background-image: url("Bckgroundimage.jpg");
+    background-color:lightgray;
+    font-family: Arial;
+    margin:0;
+}
+/*Navbar Styles*/
+.navbar{
+    background: linear-gradient(to right, #00008B, #0000CD);
+    text-align:center;
+    padding:15px;
+}
+/*Navigation Links Styles*/
+.nav-links{
+    list-style:none;
+    display:flex;
+    gap:20px;
+    margin:0;
+    padding:0px;
+    justify-content:center;
+}
+.nav-links a:link{
+    color:white;
+    text-decoration:none;
+}
+.nav-links a:visited{
+    color:lightgray;
+}
+.nav-links a:hover{
+    color:yellow;
+    text-decoration:none;
+}
+.nav-links a:active{
+    color:red;
+/*Table Styles*/
+}table{
+    width:100%;
+    border-collapse:collapse;
+    text-align:center;
+
+}
+th{
+    background-color:darkblue;
+    color:white;
+    padding:10px;
+}
+td{
+    border:1px solid #ccc;
+    padding:10px;
+}
+tr:nth-child(even){
+    background-color:#f2f2f2;
+}
+
+/*Content Styles*/
+.content{
+    color:rgb(18, 9, 9);
+    font-weight:bold;
+    text-align:center;
+}
+/*button styles*/
+.btn1{
+    background-color:#4d4da8;
+    color:black;
+    padding:10px 20px;
+}
+/* Event Section */
+.events-section{
+    padding:20px;
+    text-align:center;
+}
+/*heading styles*/
+h1{
+    color:black;
+    text-transform:uppercase;
+    text-align:center;
+}
+h2{
+    color:darkblue;
+    font-size:24px;
+    font-family: Arial, sans-serif;
+    font-weight:bold;
+    font-style:italic;
+    letter-spacing:2px;
+    line-height:1.5;
+
+}
+.event-section-title{
+    color:darkblue;
+    font-weight:bold;
+}
+
+/*Container Styles*/
+.container{
+    justify-content:center;
+}
+input:focus,textarea:focus {
+    outline: 2px solid rgb(181, 181, 201);
+    border:1px solid rgb(181, 181, 201);
+}
+/*Visibility Styles & display Styles*/
+.hidden1{
+    visibility:hidden;
+}
+.hidden2{
+    display:none;
+}
+.normal-box{
+    background-color: blue;
+    padding: 10px;
+    margin: 10px;
+    color: white;
+}
+/*Event Card Styles*/
+.event-card{
+    background-color:white;
+    border:1px solid #ccc;
+    border-radius:5px;
+    padding:15px;
+    margin:10px;
+}
+/*contact styles*/
+.contact-section{
+    background-color:darkblue;
+    color:white;
+    text-align:center;
+}
+/*Grolup styles*/
+h3,p{
+    font-family: Arial, sans-serif;
+}
+/*muiltiple columns styles*/
+.multi-column{
+    text-align:center;
+    background-color:lightgray;
+    padding:20px;
+}
+.multi-column p{
+    column-count:2;
+    column-gap:20px;
+    column-rule:1px solid #ccc;
+    text-align:justify;
+}
+/*Footer Styles*/
+.footer{
+    background-color: rgba(0,0,0,0.5);
+    color:black;
+    text-align:center;
+    padding:10px;
+}
+@media (max-width:786px){
+    .nav-links{
+        flex-direction: column;
+        gap:20px;
+    }
+    h1{
+        font-size:20px;
+    }
+    h2{
+        font-size:18px;
+    }
+    p{
+        font-size:16px;
+    }
+    .container{
+        width:90%
+    }
+    .event-card{
+        width:100vw;
+        height:100vh;
+    }
+
+}
